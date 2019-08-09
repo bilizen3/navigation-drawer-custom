@@ -26,6 +26,10 @@
 
             <include layout="@layout/nav_header_main" />
 
+            <com.flores.navigationdrawercustom.MenuDrawerCustom
+                android:id="@+id/mainMenuDrawerCustom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </com.google.android.material.navigation.NavigationView>
