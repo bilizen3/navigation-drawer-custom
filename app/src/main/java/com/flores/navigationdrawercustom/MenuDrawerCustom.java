@@ -3,6 +3,7 @@ package com.flores.navigationdrawercustom;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import androidx.appcompat.widget.LinearLayoutCompat;
 
@@ -39,9 +40,17 @@ public class MenuDrawerCustom extends LinearLayoutCompat {
     }
 
     public void addItems(List<ItemDrawerCustom> itemDrawerCustoms) {
-        for (ItemDrawerCustom itemDrawerCustom : itemDrawerCustoms) {
+        for (final ItemDrawerCustom itemDrawerCustom : itemDrawerCustoms) {
             menuDrawer.addView(itemDrawerCustom);
+            itemDrawerCustom.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemDrawerCustom.setSelect(true);
+                }
+            });
         }
     }
+
+
 
 }

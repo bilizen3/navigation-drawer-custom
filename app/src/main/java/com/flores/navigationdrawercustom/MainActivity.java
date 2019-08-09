@@ -21,8 +21,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private MenuDrawerCustom menuDrawerCustom;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +52,20 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
+        setMenuDrawer();
+    }
 
+    public void setMenuDrawer(){
+        menuDrawerCustom= findViewById(R.id.mainMenuDrawerCustom);
+        List<ItemDrawerCustom> arrayList= new ArrayList();
+        ItemDrawerCustom itemDrawerCustom= new ItemDrawerCustom(this);
+        itemDrawerCustom.setSelected(true);
+        arrayList.add(itemDrawerCustom);
+        arrayList.add(new ItemDrawerCustom(this));
+        arrayList.add(new ItemDrawerCustom(this));
+        arrayList.add(new ItemDrawerCustom(this));
+        arrayList.add(new ItemDrawerCustom(this));
+        menuDrawerCustom.addItems(arrayList);
     }
 
     @Override
