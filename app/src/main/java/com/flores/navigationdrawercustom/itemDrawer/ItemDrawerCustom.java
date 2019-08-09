@@ -1,16 +1,14 @@
-package com.flores.navigationdrawercustom;
+package com.flores.navigationdrawercustom.itemDrawer;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.widget.ImageView;
-
 import androidx.annotation.DrawableRes;
-import androidx.annotation.IdRes;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.LinearLayoutCompat;
+import com.flores.navigationdrawercustom.R;
 
 /**
  * MenuDrawerCustom
@@ -20,6 +18,7 @@ import androidx.appcompat.widget.LinearLayoutCompat;
  */
 public class ItemDrawerCustom extends LinearLayoutCompat {
 
+    private int gId;
     private LinearLayoutCompat itemMenuDrawer;
     private AppCompatImageView itemMenuImageView;
     private AppCompatTextView itemMenuText;
@@ -55,11 +54,26 @@ public class ItemDrawerCustom extends LinearLayoutCompat {
         itemMenuText.setText(text);
     }
 
-    public void setSelect(boolean selected){
-        if(selected){
+    public String getText() {
+        return itemMenuText.getText().toString();
+    }
+
+
+    public int getId() {
+        return gId;
+    }
+
+    public void setId(int pId) {
+        gId = pId;
+    }
+
+    public void setSelect(boolean selected) {
+        if (selected) {
             itemMenuDrawer.setBackground(getResources().getDrawable(R.drawable.bg_item));
-        }else{
+            itemMenuImageView.setColorFilter(Color.GREEN);
+        } else {
             itemMenuDrawer.setBackgroundColor(Color.parseColor("#00FFFFFF"));
+            itemMenuImageView.setColorFilter(Color.parseColor("#FF000000"));
         }
     }
 }
