@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import com.flores.navigationdrawercustom.R;
-import com.flores.navigationdrawercustom.itemDrawer.ItemDrawerCustom;
 
 import java.util.List;
 
@@ -16,27 +15,27 @@ import java.util.List;
  * @author Bill Flores - Avantica
  * @since 08/09/2019
  */
-public class MenuDrawerCustom extends LinearLayoutCompat {
+public class MenuDrawerView extends LinearLayoutCompat {
 
     private int gIdItemDrawer;
 
     private LinearLayoutCompat menuDrawer;
 
-    private List<ItemDrawerCustom> gItemDrawerCustoms;
+    private List<ItemDrawerView> gItemDrawerViews;
 
     private MenuDrawerCustomInterface gMenuDrawerCustomInterface;
 
-    public MenuDrawerCustom(Context context) {
+    public MenuDrawerView(Context context) {
         super(context);
         initUi(context);
     }
 
-    public MenuDrawerCustom(Context context, AttributeSet attrs) {
+    public MenuDrawerView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initUi(context);
     }
 
-    public MenuDrawerCustom(Context context, AttributeSet attrs, int defStyleAttr) {
+    public MenuDrawerView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initUi(context);
     }
@@ -47,32 +46,32 @@ public class MenuDrawerCustom extends LinearLayoutCompat {
         menuDrawer = findViewById(R.id.menuDrawer);
     }
 
-    public void addListItemDrawers(List<ItemDrawerCustom> pItemDrawerCustoms) {
-        gItemDrawerCustoms = pItemDrawerCustoms;
-        for (final ItemDrawerCustom itemDrawerCustom : gItemDrawerCustoms) {
-            menuDrawer.addView(itemDrawerCustom);
-            setUpItemDrawer(itemDrawerCustom);
+    public void addListItemDrawers(List<ItemDrawerView> pItemDrawerViews) {
+        gItemDrawerViews = pItemDrawerViews;
+        for (final ItemDrawerView itemDrawerView : gItemDrawerViews) {
+            menuDrawer.addView(itemDrawerView);
+            setUpItemDrawer(itemDrawerView);
         }
     }
 
-    private void setUpItemDrawer(final ItemDrawerCustom pItemDrawerCustom) {
-        pItemDrawerCustom.setOnClickListener(new OnClickListener() {
+    private void setUpItemDrawer(final ItemDrawerView pItemDrawerView) {
+        pItemDrawerView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                pItemDrawerCustom.setSelect(true);
-                gIdItemDrawer = pItemDrawerCustom.getId();
+                pItemDrawerView.setSelect(true);
+                gIdItemDrawer = pItemDrawerView.getId();
                 refreshItemsDrawer();
-                gMenuDrawerCustomInterface.setOnClickItem(pItemDrawerCustom);
+                gMenuDrawerCustomInterface.setOnClickItem(pItemDrawerView);
             }
         });
     }
 
     private void refreshItemsDrawer() {
-        for (final ItemDrawerCustom itemDrawerCustom : gItemDrawerCustoms) {
-            if (itemDrawerCustom.getId() == gIdItemDrawer) {
-                itemDrawerCustom.setSelect(true);
+        for (final ItemDrawerView itemDrawerView : gItemDrawerViews) {
+            if (itemDrawerView.getId() == gIdItemDrawer) {
+                itemDrawerView.setSelect(true);
             } else {
-                itemDrawerCustom.setSelect(false);
+                itemDrawerView.setSelect(false);
             }
         }
     }
@@ -82,7 +81,7 @@ public class MenuDrawerCustom extends LinearLayoutCompat {
     }
 
     public interface MenuDrawerCustomInterface {
-        void setOnClickItem(ItemDrawerCustom pItemDrawerCustom);
+        void setOnClickItem(ItemDrawerView pItemDrawerView);
     }
 
 }

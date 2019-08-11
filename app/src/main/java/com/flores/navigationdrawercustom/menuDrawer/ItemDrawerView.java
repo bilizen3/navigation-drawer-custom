@@ -1,4 +1,4 @@
-package com.flores.navigationdrawercustom.itemDrawer;
+package com.flores.navigationdrawercustom.menuDrawer;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -16,24 +16,24 @@ import com.flores.navigationdrawercustom.R;
  * @author Bill Flores - Avantica
  * @since 08/09/2019
  */
-public class ItemDrawerCustom extends LinearLayoutCompat {
+public class ItemDrawerView extends LinearLayoutCompat {
 
     private int gId;
     private LinearLayoutCompat itemMenuDrawer;
     private AppCompatImageView itemMenuImageView;
     private AppCompatTextView itemMenuText;
 
-    public ItemDrawerCustom(Context context) {
+    public ItemDrawerView(Context context) {
         super(context);
         initUi(context);
     }
 
-    public ItemDrawerCustom(Context context, AttributeSet attrs) {
+    public ItemDrawerView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initUi(context);
     }
 
-    public ItemDrawerCustom(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ItemDrawerView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initUi(context);
     }

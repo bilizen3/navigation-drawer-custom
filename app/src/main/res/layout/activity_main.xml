@@ -23,7 +23,7 @@
         <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/side_nav_bar"
+                android:background="@drawable/bg_nav_bar"
                 android:orientation="vertical">
 
             <include
@@ -39,7 +39,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
 
-                <com.flores.navigationdrawercustom.menuDrawer.MenuDrawerCustom
+                <com.flores.navigationdrawercustom.menuDrawer.MenuDrawerView
                         android:id="@+id/mainMenuDrawerCustom"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -64,7 +64,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="28dp"
-                        android:src="@drawable/ic_menu_camera_test"/>
+                        android:src="@drawable/ic_camera"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"

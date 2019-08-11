@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import com.flores.navigationdrawercustom.itemDrawer.ItemDrawerCustom;
-import com.flores.navigationdrawercustom.menuDrawer.MenuDrawerCustom;
+import com.flores.navigationdrawercustom.menuDrawer.ItemDrawerView;
+import com.flores.navigationdrawercustom.menuDrawer.MenuDrawerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -21,9 +21,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        MenuDrawerCustom.MenuDrawerCustomInterface {
+        MenuDrawerView.MenuDrawerCustomInterface {
 
-    private MenuDrawerCustom menuDrawerCustom;
+    private MenuDrawerView menuDrawerView;
 
     private final int MY_ACCOUNTS = 1;
     private final int TRANSFERENCE = 2;
@@ -59,51 +59,51 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void setMenuDrawer() {
-        menuDrawerCustom = findViewById(R.id.mainMenuDrawerCustom);
+        menuDrawerView = findViewById(R.id.mainMenuDrawerCustom);
         addDataFake();
     }
 
     private void addDataFake() {
-        List<ItemDrawerCustom> arrayList = new ArrayList();
+        List<ItemDrawerView> arrayList = new ArrayList();
 
-        ItemDrawerCustom itemDrawerCustom = new ItemDrawerCustom(this);
-        itemDrawerCustom.setId(MY_ACCOUNTS);
-        itemDrawerCustom.setSelected(true);
-        itemDrawerCustom.setText("Mis perfil");
-        arrayList.add(itemDrawerCustom);
+        ItemDrawerView itemDrawerView = new ItemDrawerView(this);
+        itemDrawerView.setId(MY_ACCOUNTS);
+        itemDrawerView.setSelected(true);
+        itemDrawerView.setText("Mis perfil");
+        arrayList.add(itemDrawerView);
 
-        ItemDrawerCustom itemDrawerCustom1 = new ItemDrawerCustom(this);
-        itemDrawerCustom1.setId(TRANSFERENCE);
-        itemDrawerCustom1.setText("Transferencias");
-        arrayList.add(itemDrawerCustom1);
+        ItemDrawerView itemDrawerView1 = new ItemDrawerView(this);
+        itemDrawerView1.setId(TRANSFERENCE);
+        itemDrawerView1.setText("Transferencias");
+        arrayList.add(itemDrawerView1);
 
-        ItemDrawerCustom itemDrawerCustom2 = new ItemDrawerCustom(this);
-        itemDrawerCustom2.setId(PAYMENTS);
-        itemDrawerCustom2.setText("Pagos");
-        arrayList.add(itemDrawerCustom2);
+        ItemDrawerView itemDrawerView2 = new ItemDrawerView(this);
+        itemDrawerView2.setId(PAYMENTS);
+        itemDrawerView2.setText("Pagos");
+        arrayList.add(itemDrawerView2);
 
-        ItemDrawerCustom itemDrawerCustom3 = new ItemDrawerCustom(this);
-        itemDrawerCustom3.setId(FIXED_TERM);
-        itemDrawerCustom3.setText("Plazo Fijo");
-        arrayList.add(itemDrawerCustom3);
+        ItemDrawerView itemDrawerView3 = new ItemDrawerView(this);
+        itemDrawerView3.setId(FIXED_TERM);
+        itemDrawerView3.setText("Plazo Fijo");
+        arrayList.add(itemDrawerView3);
 
-        ItemDrawerCustom itemDrawerCustom4 = new ItemDrawerCustom(this);
-        itemDrawerCustom4.setId(NOTIFICATIONS);
-        itemDrawerCustom4.setText("Notificaciones");
-        arrayList.add(itemDrawerCustom4);
+        ItemDrawerView itemDrawerView4 = new ItemDrawerView(this);
+        itemDrawerView4.setId(NOTIFICATIONS);
+        itemDrawerView4.setText("Notificaciones");
+        arrayList.add(itemDrawerView4);
 
-        ItemDrawerCustom itemDrawerCustom5 = new ItemDrawerCustom(this);
-        itemDrawerCustom5.setId(FREQUENT_OPERATIONS);
-        itemDrawerCustom5.setText("Operaciones frecuentes");
-        arrayList.add(itemDrawerCustom5);
+        ItemDrawerView itemDrawerView5 = new ItemDrawerView(this);
+        itemDrawerView5.setId(FREQUENT_OPERATIONS);
+        itemDrawerView5.setText("Operaciones frecuentes");
+        arrayList.add(itemDrawerView5);
 
-        ItemDrawerCustom itemDrawerCustom6 = new ItemDrawerCustom(this);
-        itemDrawerCustom6.setId(SETTINGS);
-        itemDrawerCustom6.setText("Configuración");
-        arrayList.add(itemDrawerCustom6);
+        ItemDrawerView itemDrawerView6 = new ItemDrawerView(this);
+        itemDrawerView6.setId(SETTINGS);
+        itemDrawerView6.setText("Configuración");
+        arrayList.add(itemDrawerView6);
 
-        menuDrawerCustom.setMenuDrawerCustomInterface(this);
-        menuDrawerCustom.addListItemDrawers(arrayList);
+        menuDrawerView.setMenuDrawerCustomInterface(this);
+        menuDrawerView.addListItemDrawers(arrayList);
     }
 
     @Override
@@ -164,8 +164,24 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void setOnClickItem(ItemDrawerCustom pItemDrawerCustom) {
-        Toast.makeText(this, pItemDrawerCustom.getText(), Toast.LENGTH_SHORT).show();
+    public void setOnClickItem(ItemDrawerView pItemDrawerView) {
+        Toast.makeText(this, pItemDrawerView.getText(), Toast.LENGTH_SHORT).show();
+        switch (pItemDrawerView.getId()) {
+            case MY_ACCOUNTS:
+                break;
+            case TRANSFERENCE:
+                break;
+            case PAYMENTS:
+                break;
+            case FIXED_TERM:
+                break;
+            case NOTIFICATIONS:
+                break;
+            case FREQUENT_OPERATIONS:
+                break;
+            case SETTINGS:
+                break;
+        }
         onBackPressed();
     }
 }
