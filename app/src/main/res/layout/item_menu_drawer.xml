@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/itemMenuDrawer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:orientation="horizontal"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp">
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemMenuDrawer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/itemMenuDrawer.paddingTop"
+    android:paddingBottom="@dimen/itemMenuDrawer.paddingTop">
 
     <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/itemMenuImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="28dp"
-            app:srcCompat="@drawable/ic_camera"/>
+        android:id="@+id/itemMenuDrawerImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="28dp"
+        tools:srcCompat="@drawable/ic_active_payments" />
 
     <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/itemMenuText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="12dp"
-            android:text="Mi Perfil"
-            android:textColor="#444444"
-            android:textSize="14sp"/>
+        android:id="@+id/itemMenuDrawerText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_marginStart="12dp"
+        android:textSize="14sp"
+        tools:text="Mi Perfil"
+        tools:textColor="@android:color/black" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
