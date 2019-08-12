@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import com.flores.navigationdrawercustom.menuDrawer.ItemDrawerView;
-import com.flores.navigationdrawercustom.menuDrawer.MenuDrawerView;
+import com.flores.navigationdrawercustom.menuDrawer.ItemMenuDrawerCustom;
+import com.flores.navigationdrawercustom.menuDrawer.MenuDrawerCustom;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -21,9 +21,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        MenuDrawerView.MenuDrawerCustomInterface {
+        MenuDrawerCustom.MenuDrawerCustomInterface {
 
-    private MenuDrawerView menuDrawerView;
+    private MenuDrawerCustom menuDrawerCustom;
 
     private final int MY_ACCOUNTS = 1;
     private final int TRANSFERENCE = 2;
@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity
     private final int NOTIFICATIONS = 5;
     private final int FREQUENT_OPERATIONS = 6;
     private final int SETTINGS = 7;
+    private final int LOCAL_US = 8;
+    private final int FREQUENT_QUESTIONS = 9;
+    private final int PROMOTIONS= 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,51 +62,90 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void setMenuDrawer() {
-        menuDrawerView = findViewById(R.id.mainMenuDrawerCustom);
+        menuDrawerCustom = findViewById(R.id.mainMenuDrawerCustom);
         addDataFake();
     }
 
     private void addDataFake() {
-        List<ItemDrawerView> arrayList = new ArrayList();
+        List<ItemMenuDrawerCustom> arrayList = new ArrayList();
 
-        ItemDrawerView itemDrawerView = new ItemDrawerView(this);
-        itemDrawerView.setId(MY_ACCOUNTS);
-        itemDrawerView.setSelected(true);
-        itemDrawerView.setText("Mis perfil");
-        arrayList.add(itemDrawerView);
+        ItemMenuDrawerCustom itemMenuDrawerCustom = new ItemMenuDrawerCustom(this);
+        itemMenuDrawerCustom.setItemDrawerId(MY_ACCOUNTS);
+        itemMenuDrawerCustom.setItemDrawerText("Mis Cuentas");
+        itemMenuDrawerCustom.setItemDrawerImageUnSelected(R.drawable.ic_disable_my_accounts);
+        itemMenuDrawerCustom.setItemDrawerImageSelected(R.drawable.ic_active_my_accounts);
+        arrayList.add(itemMenuDrawerCustom);
 
-        ItemDrawerView itemDrawerView1 = new ItemDrawerView(this);
-        itemDrawerView1.setId(TRANSFERENCE);
-        itemDrawerView1.setText("Transferencias");
-        arrayList.add(itemDrawerView1);
+        ItemMenuDrawerCustom itemMenuDrawerCustom1 = new ItemMenuDrawerCustom(this);
+        itemMenuDrawerCustom1.setItemDrawerId(TRANSFERENCE);
+        itemMenuDrawerCustom1.setItemDrawerText("Transferencias");
+        itemMenuDrawerCustom1.setItemDrawerImageSelected(R.drawable.ic_active_transfers);
+        itemMenuDrawerCustom1.setItemDrawerImageUnSelected(R.drawable.ic_disable_transfers);
+        arrayList.add(itemMenuDrawerCustom1);
 
-        ItemDrawerView itemDrawerView2 = new ItemDrawerView(this);
-        itemDrawerView2.setId(PAYMENTS);
-        itemDrawerView2.setText("Pagos");
-        arrayList.add(itemDrawerView2);
+        ItemMenuDrawerCustom itemMenuDrawerCustom2 = new ItemMenuDrawerCustom(this);
+        itemMenuDrawerCustom2.setItemDrawerId(PAYMENTS);
+        itemMenuDrawerCustom2.setItemDrawerText("Pagos");
+        itemMenuDrawerCustom2.setItemDrawerImageSelected(R.drawable.ic_active_payments);
+        itemMenuDrawerCustom2.setItemDrawerImageUnSelected(R.drawable.ic_disable_payments);
+        arrayList.add(itemMenuDrawerCustom2);
 
-        ItemDrawerView itemDrawerView3 = new ItemDrawerView(this);
-        itemDrawerView3.setId(FIXED_TERM);
-        itemDrawerView3.setText("Plazo Fijo");
-        arrayList.add(itemDrawerView3);
+        ItemMenuDrawerCustom itemMenuDrawerCustom3 = new ItemMenuDrawerCustom(this);
+        itemMenuDrawerCustom3.setItemDrawerId(FIXED_TERM);
+        itemMenuDrawerCustom3.setItemDrawerText("Plazo Fijo");
+        itemMenuDrawerCustom3.setItemDrawerImageSelected(R.drawable.ic_active_fixed_term);
+        itemMenuDrawerCustom3.setItemDrawerImageUnSelected(R.drawable.ic_disable_fixed_term);
+        arrayList.add(itemMenuDrawerCustom3);
 
-        ItemDrawerView itemDrawerView4 = new ItemDrawerView(this);
-        itemDrawerView4.setId(NOTIFICATIONS);
-        itemDrawerView4.setText("Notificaciones");
-        arrayList.add(itemDrawerView4);
+        ItemMenuDrawerCustom itemMenuDrawerCustom4 = new ItemMenuDrawerCustom(this);
+        itemMenuDrawerCustom4.setItemDrawerId(NOTIFICATIONS);
+        itemMenuDrawerCustom4.setItemDrawerText("Notificaciones");
+        itemMenuDrawerCustom4.setItemDrawerImageSelected(R.drawable.ic_active_notifications);
+        itemMenuDrawerCustom4.setItemDrawerImageUnSelected(R.drawable.ic_disable_notifications);
+        arrayList.add(itemMenuDrawerCustom4);
 
-        ItemDrawerView itemDrawerView5 = new ItemDrawerView(this);
-        itemDrawerView5.setId(FREQUENT_OPERATIONS);
-        itemDrawerView5.setText("Operaciones frecuentes");
-        arrayList.add(itemDrawerView5);
+        ItemMenuDrawerCustom itemMenuDrawerCustom5 = new ItemMenuDrawerCustom(this);
+        itemMenuDrawerCustom5.setItemDrawerId(FREQUENT_OPERATIONS);
+        itemMenuDrawerCustom5.setItemDrawerText("Operaciones frecuentes");
+        itemMenuDrawerCustom5.setItemDrawerImageSelected(R.drawable.ic_active_frequent_operations);
+        itemMenuDrawerCustom5.setItemDrawerImageUnSelected(R.drawable.ic_disable_frequent_operations);
+        arrayList.add(itemMenuDrawerCustom5);
 
-        ItemDrawerView itemDrawerView6 = new ItemDrawerView(this);
-        itemDrawerView6.setId(SETTINGS);
-        itemDrawerView6.setText("Configuración");
-        arrayList.add(itemDrawerView6);
+        ItemMenuDrawerCustom itemMenuDrawerCustom6 = new ItemMenuDrawerCustom(this);
+        itemMenuDrawerCustom6.setItemDrawerId(SETTINGS);
+        itemMenuDrawerCustom6.setItemDrawerText("Configuración");
+        itemMenuDrawerCustom6.setItemDrawerImageSelected(R.drawable.ic_active_configuration);
+        itemMenuDrawerCustom6.setItemDrawerImageUnSelected(R.drawable.ic_disable_configuration);
+        arrayList.add(itemMenuDrawerCustom6);
 
-        menuDrawerView.setMenuDrawerCustomInterface(this);
-        menuDrawerView.addListItemDrawers(arrayList);
+        ItemMenuDrawerCustom itemMenuDrawerCustom7 = new ItemMenuDrawerCustom(this);
+        itemMenuDrawerCustom7.setItemDrawerId(LOCAL_US);
+        itemMenuDrawerCustom7.setItemDrawerText("Ubícanos");
+        itemMenuDrawerCustom7.setItemDrawerImageSelected(R.drawable.ic_active_locate_us);
+        itemMenuDrawerCustom7.setItemDrawerImageUnSelected(R.drawable.ic_disable_locate_us);
+        arrayList.add(itemMenuDrawerCustom7);
+
+        ItemMenuDrawerCustom itemMenuDrawerCustom8 = new ItemMenuDrawerCustom(this);
+        itemMenuDrawerCustom8.setItemDrawerId(FREQUENT_QUESTIONS);
+        itemMenuDrawerCustom8.setItemDrawerText("Preguntas frecuentes");
+        itemMenuDrawerCustom8.setItemDrawerImageSelected(R.drawable.ic_active_frequent_questions);
+        itemMenuDrawerCustom8.setItemDrawerImageUnSelected(R.drawable.ic_disable_frequent_questions);
+        arrayList.add(itemMenuDrawerCustom8);
+
+        ItemMenuDrawerCustom itemMenuDrawerCustom9 = new ItemMenuDrawerCustom(this);
+        itemMenuDrawerCustom9.setItemDrawerId(PROMOTIONS);
+        itemMenuDrawerCustom9.setItemDrawerText("Promociones");
+        itemMenuDrawerCustom9.setItemDrawerImageSelected(R.drawable.ic_active_promotions);
+        itemMenuDrawerCustom9.setItemDrawerImageUnSelected(R.drawable.ic_disable_promotions);
+        arrayList.add(itemMenuDrawerCustom9);
+
+        menuDrawerCustom.setMenuDrawerCustomInterface(this);
+        menuDrawerCustom.addListItemDrawers(
+                arrayList,
+                R.drawable.bg_item,
+                R.color.colorTransparent,
+                R.color.colorSelected,
+                R.color.colorWhite);
     }
 
     @Override
@@ -164,9 +206,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void setOnClickItem(ItemDrawerView pItemDrawerView) {
-        Toast.makeText(this, pItemDrawerView.getText(), Toast.LENGTH_SHORT).show();
-        switch (pItemDrawerView.getId()) {
+    public void setOnClickItem(ItemMenuDrawerCustom pItemMenuDrawerCustom) {
+        Toast.makeText(this, pItemMenuDrawerCustom.getItemDrawerText(), Toast.LENGTH_SHORT).show();
+        switch (pItemMenuDrawerCustom.getItemDrawerId()) {
             case MY_ACCOUNTS:
                 break;
             case TRANSFERENCE:
